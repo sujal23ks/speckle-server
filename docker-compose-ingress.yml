@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    # The official v2 Traefik docker image
+    image: traefik:v2.5
+    # Enables the web UI and tells Traefik to listen to docker
+    command: --api.insecure=true --providers.docker
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  speckle-frontend:
+    image: speckle/speckle-frontend:latest
+    restart: always
+    labels:
+      - "traefik.http.routers.speckle-frontend.rule=Host(`localhost`)"
+
+  speckle-server:
+    image: speckle/speckle-server:latest
+    restart: always
+    environment:
+      # TODO: Change this to the URL of the speckle server, as accessed from the network
+      CANONICAL_URL: "http://localhost"
+
+      # TODO: Change this to a unique secret for this server
+      SESSION_SECRET: "TODO:Replace"
+
+      STRATEGY_LOCAL: "true"
+      DEBUG: "speckle:*"
+
+      POSTGRES_URL: "postgres"
+      POSTGRES_USER: "speckle"
+      POSTGRES_PASSWORD: "speckle"
+      POSTGRES_DB: "speckle"
+
+      REDIS_URL: "redis://redis"
+
+  preview-service:
+    image: speckle/speckle-preview-service:latest
+
+    restart: always
+    mem_limit: "1000m"
+    memswap_limit: "1000m"
+    environment:
+      DEBUG: "preview-service:*"
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
+
+  webhook-service:
+    image: speckle/speckle-webhook-service:latest
+    restart: always
+    environment:
+      DEBUG: "webhook-service:*"
+      PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
