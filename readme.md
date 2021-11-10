@@ -80,9 +80,9 @@ Please make sure you read the [contribution guidelines](https://github.com/speck
 
 When pushing commits to this repo, please follow the following guidelines:
 
-- Install [commitizen](https://www.npmjs.com/package/commitizen#commitizen-for-contributors) globally (`npm i -g commitizen`).
-- When ready to commit, `git cz` & follow the prompts.
-- Please use either `server` or `frontend` as the scope of your commit.
+- Use [commitizen](https://www.npmjs.com/package/commitizen#commitizen-for-contributors) with npx or install globally (`npm i -g commitizen`).
+- When ready to commit, run `npx cz` or `git cz` if you installed locally & follow the prompts.
+- Please use the package name as the scope of your commit ie.: `server` or `frontend`.
 
 ### Security
 
