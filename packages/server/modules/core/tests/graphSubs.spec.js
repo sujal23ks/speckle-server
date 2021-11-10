@@ -48,8 +48,8 @@ describe( 'GraphQL API Subscriptions @gql-subscriptions', ( ) => {
   before( async function ( ) {
     this.timeout( 10000 ) // we need to wait for the server to start in the child process!
 
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
 
     const childProcess = require( 'child_process' )
     console.log( '  Starting server... this might take a bit.' )
@@ -90,7 +90,7 @@ describe( 'GraphQL API Subscriptions @gql-subscriptions', ( ) => {
   } )
 
   after( async ( ) => {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
     serverProcess.kill( )
   } )
 

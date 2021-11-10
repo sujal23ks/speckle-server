@@ -37,7 +37,7 @@ describe( 'Apps @apps', ( ) => {
     } )
 
     after( async ( ) => {
-      await knex.migrate.rollback( )
+      // await knex.migrate.rollback( )
     } )
 
     it( 'Should get the frontend main app', async ( ) => {
@@ -243,7 +243,7 @@ describe( 'Apps @apps', ( ) => {
     } )
 
     after( async ( ) => {
-      await knex.migrate.rollback( )
+      // await knex.migrate.rollback( )
       testServer.close( )
     } )
 

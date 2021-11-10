@@ -42,8 +42,8 @@ describe( 'Webhooks @webhooks', () => {
   }
 
   before( async ( ) => {
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
     let { app } = await init()
     let { server } = await startHttp( app, 0 )
     app.on( 'appStarted', () => {

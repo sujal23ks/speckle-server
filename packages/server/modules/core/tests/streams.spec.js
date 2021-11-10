@@ -18,7 +18,6 @@ const { createObject, createObjects } = require( '../services/objects' )
 const { createCommitByBranchName } = require( '../services/commits' )
 
 describe( 'Streams @core-streams', ( ) => {
-
   let userOne = {
     name: 'Dimitrie Stefanescu',
     email: 'didimitrie@gmail.com',
@@ -32,15 +31,15 @@ describe( 'Streams @core-streams', ( ) => {
   }
 
   before( async ( ) => {
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
     await init()
 
     userOne.id = await createUser( userOne )
   } )
 
   after( async ( ) => {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
   } )
 
   let testStream = {
@@ -100,7 +99,6 @@ describe( 'Streams @core-streams', ( ) => {
   } )
 
   describe( 'Sharing: Grant & Revoke permissions', ( ) => {
-
     before( async ( ) => {
       userTwo.id = await createUser( userTwo )
     } )
@@ -200,7 +198,6 @@ describe( 'Streams @core-streams', ( ) => {
       su = await getStream( { streamId: s.id } )
       expect( su.updatedAt ).to.not.equal( s.updatedAt )
     } )
-
   } )
 } )
 

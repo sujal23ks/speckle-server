@@ -16,13 +16,12 @@ const ResetTokens = ( ) => knex( 'pwdreset_tokens' )
 const { createUser } = require( `${appRoot}/modules/core/services/users` )
 
 describe( 'Password reset requests @passwordresets', ( ) => {
-
   let userA = { name: 'd1', email: 'd@speckle.systems', password: 'wowwow8charsplease' }
 
   let expressApp
   before( async ( ) => {
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
 
     let { app } = await init( )
     expressApp = app
@@ -31,11 +30,10 @@ describe( 'Password reset requests @passwordresets', ( ) => {
   } )
 
   after( async ( ) => {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
   } )
 
   it( 'Should carefully send a password request email', async ( ) => {
-
     // invalid request
     await request( expressApp )
       .post( '/auth/pwdreset/request' )
@@ -90,10 +88,6 @@ describe( 'Password reset requests @passwordresets', ( ) => {
       .post( '/auth/pwdreset/finalize' )
       .send( { tokenId: token.id, password: 'abc12345678' } )
       .expect( 400 )
-
   } )
-
-
-
 } )
 

@@ -25,15 +25,15 @@ describe( 'Server stats services @stats-services', function() {
   before( async function() {
     this.timeout( 10000 )
 
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
 
     await init()
     await seedDb( params )
   } )
 
   after( async() => {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
   } )
 
   it( 'should return the total number of users on this server', async () => {
@@ -126,8 +126,8 @@ describe( 'Server stats api @stats-api', function() {
 
   before( async function() {
     this.timeout( 10000 )
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
 
     let { app } = await init( )
     let { server } = await startHttp( app, 0 )
@@ -148,7 +148,7 @@ describe( 'Server stats api @stats-api', function() {
   } )
 
   after( async function() {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
     testServer.close( )
   } )
 

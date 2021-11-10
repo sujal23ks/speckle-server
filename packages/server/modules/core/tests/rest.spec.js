@@ -33,8 +33,8 @@ describe( 'Upload/Download Routes @api-rest', ( ) => {
 
   let expressApp
   before( async ( ) => {
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
 
     let { app } = await init( )
     expressApp = app
@@ -50,7 +50,7 @@ describe( 'Upload/Download Routes @api-rest', ( ) => {
   } )
 
   after( async ( ) => {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
   } )
 
   it( 'Should not allow download requests without an authorization token or valid streamId', async ( ) => {

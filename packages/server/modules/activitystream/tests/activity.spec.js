@@ -9,6 +9,7 @@ const { createObject } = require( '../../core/services/objects' )
 const { getUserActivity } = require( '../services' )
 const { init, startHttp } = require( `${appRoot}/app` )
 const knex = require( `${appRoot}/db/knex` )
+const knexCleaner = require( 'knex-cleaner' )
 
 const expect = chai.expect
 chai.use( chaiHttp )
@@ -63,8 +64,10 @@ describe( 'Activity @activity', () => {
   }
 
   before( async () => {
-    await knex.migrate.rollback( )
-    await knex.migrate.latest()
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest()
+
+    await knexCleaner.clean( knex )
 
     let { app } = await init( )
     let { server } = await startHttp( app, 0 )
@@ -89,7 +92,7 @@ describe( 'Activity @activity', () => {
   } )
 
   after( async ( ) => {
-    await knex.migrate.rollback()
+    // await knex.migrate.rollback()
     testServer.close( )
   } )
 

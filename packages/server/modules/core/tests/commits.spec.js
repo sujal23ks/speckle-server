@@ -60,8 +60,8 @@ describe( 'Commits @core-commits', ( ) => {
   }
 
   before( async ( ) => {
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
 
     await init()
 
@@ -74,7 +74,7 @@ describe( 'Commits @core-commits', ( ) => {
   } )
 
   after( async ( ) => {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
   } )
 
   let commitId1, commitId2, commitId3

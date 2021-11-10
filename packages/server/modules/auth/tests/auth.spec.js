@@ -20,8 +20,8 @@ describe( 'Auth @auth', ( ) => {
     let userId
 
     before( async ( ) => {
-      await knex.migrate.rollback( )
-      await knex.migrate.latest( )
+      // await knex.migrate.rollback( )
+      // await knex.migrate.latest( )
 
       let { app } = await init( )
       let { server } = await startHttp( app, 0 )
@@ -33,7 +33,7 @@ describe( 'Auth @auth', ( ) => {
     } )
 
     after( async ( ) => {
-      await knex.migrate.rollback( )
+      // await knex.migrate.rollback( )
       await testServer.close()
     } )
 

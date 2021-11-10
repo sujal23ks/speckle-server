@@ -42,8 +42,8 @@ describe( 'Branches @core-branches', () => {
   }
 
   before( async () => {
-    await knex.migrate.rollback()
-    await knex.migrate.latest()
+    // await knex.migrate.rollback()
+    // await knex.migrate.latest()
 
     await init()
 
@@ -53,7 +53,7 @@ describe( 'Branches @core-branches', () => {
   } )
 
   after( async () => {
-    await knex.migrate.rollback()
+    // await knex.migrate.rollback()
   } )
 
   let branch = { name: 'dim/dev' }

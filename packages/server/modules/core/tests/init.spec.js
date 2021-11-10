@@ -45,7 +45,7 @@ describe( 'Initialization Logic @init-logic', ( ) => {
     } )
 
     after( async ( ) => {
-      await knex.migrate.rollback() // we rollback here :)
+      // await knex.migrate.rollback() // we rollback here :)
     } )
 
     it( 'should have a lotta scopes second time round too!', async() => {

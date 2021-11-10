@@ -29,8 +29,8 @@ describe( 'Server Invites @server-invites', ( ) => {
     }
 
     before( async() => {
-      await knex.migrate.rollback( )
-      await knex.migrate.latest( )
+      // await knex.migrate.rollback( )
+      // await knex.migrate.latest( )
 
       let { app } = await init()
       myApp = app
@@ -38,7 +38,7 @@ describe( 'Server Invites @server-invites', ( ) => {
     } )
 
     after( async() => {
-      await knex.migrate.rollback( )
+      // await knex.migrate.rollback( )
     } )
 
     it( 'should create an invite', async() => {
@@ -188,8 +188,8 @@ describe( 'Server Invites @server-invites', ( ) => {
     let testServer, testToken
 
     before( async() => {
-      await knex.migrate.rollback( )
-      await knex.migrate.latest( )
+      // await knex.migrate.rollback( )
+      // await knex.migrate.latest( )
 
       let { app } = await init()
       myApp = app
@@ -206,7 +206,7 @@ describe( 'Server Invites @server-invites', ( ) => {
     } )
 
     after( async() => {
-      await knex.migrate.rollback( )
+      // await knex.migrate.rollback( )
       if ( testServer )
         testServer.close()
     } )

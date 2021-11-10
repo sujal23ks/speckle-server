@@ -28,8 +28,8 @@ describe( 'GraphQL API Core @core-api', ( ) => {
 
   // set up app & two basic users to ping pong permissions around
   before( async ( ) => {
-    await knex.migrate.rollback( )
-    await knex.migrate.latest( )
+    // await knex.migrate.rollback( )
+    // await knex.migrate.latest( )
     let { app } = await init( )
     expressApp = app
     let { server } = await startHttp( app, 0 )
@@ -48,7 +48,7 @@ describe( 'GraphQL API Core @core-api', ( ) => {
   } )
 
   after( async ( ) => {
-    await knex.migrate.rollback( )
+    // await knex.migrate.rollback( )
     testServer.close( )
   } )
 
