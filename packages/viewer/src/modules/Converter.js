@@ -30,16 +30,16 @@ export default class Coverter {
     if ( typeof obj !== 'object' ) return
     if ( obj.referencedId ) obj = await this.resolveReference( obj )
 
-    let childrenConversionPromisses = []
+    let childrenConversionPromises = []
 
     // Traverse arrays, and exit early (we don't want to iterate through many numbers)
     if ( Array.isArray( obj ) ) {
       for ( let element of obj ) {
         if ( typeof element !== 'object' ) break // exit early for non-object based arrays
         let childPromise = this.traverseAndConvert( element, callback, scale )
-        childrenConversionPromisses.push( childPromise )
+        childrenConversionPromises.push( childPromise )
       }
-      await Promise.all( childrenConversionPromisses )
+      await Promise.all( childrenConversionPromises )
       return
     }
 
@@ -417,11 +417,18 @@ export default class Coverter {
 
   async ArcToBufferGeometry( obj, scale = true ) {
     const radius = obj.radius
+    
+    // need to determine arc direction - calculate cross product using start/mid/endpoint and compare with plane normal
+    const endVector = new THREE.Vector3(obj.end.x - obj.start.x, obj.end.y - obj.start.y, obj.end.z - obj.start.z)
+    const midVector = new THREE.Vector3(obj.mid.x - obj.start.x, obj.mid.y - obj.start.y, obj.mid.z - obj.start.z)
+    const cross = midVector.cross(endVector)
+    const clockwise = ((obj.plane.normal.x / cross.x) > 0) ? false : true
+
     const curve = new THREE.EllipseCurve(
       0, 0,                           // ax, aY
       radius, radius,                 // xRadius, yRadius
       obj.startAngle, obj.endAngle,   // aStartAngle, aEndAngle
-      false,                          // aClockwise
+      clockwise,                      // aClockwise
       0                               // aRotation
     )
     const points = curve.getPoints( 50 )
