@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon style="pointer-events: none">
         <v-icon>mdi-plus-box</v-icon>
       </v-app-bar-nav-icon>
-      <v-toolbar-title>Create a New Stream</v-toolbar-title>
+      <v-toolbar-title>Create a New Order</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="$emit('close')"><v-icon>mdi-close</v-icon></v-btn>
     </v-toolbar>
@@ -15,7 +15,7 @@
           :rules="nameRules"
           validate-on-blur
           autofocus
-          label="Stream Name (optional)"
+          label="Order Name (optional)"
         />
         <v-textarea v-model="description" rows="1" row-height="15" label="Description (optional)" />
         <v-switch

@@ -112,9 +112,10 @@
             <v-icon small>mdi-home</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Stream Home</v-list-item-title>
+            <v-list-item-title>Order Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
 
         <!-- Branch menu group -->
          <v-list-group v-model="branchMenuOpen" class="my-2">
@@ -216,6 +217,7 @@
           <v-skeleton-loader v-else type="list-item-two-line"></v-skeleton-loader>
           <v-divider class="mb-2"></v-divider>
         </v-list-group>
+      
 
         <!-- Other menu items go here -->
 
