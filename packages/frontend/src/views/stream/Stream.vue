@@ -117,7 +117,7 @@
         </v-list-item>
 
         <!-- Branch menu group -->
-        <v-list-group v-model="branchMenuOpen" class="my-2">
+         <v-list-group v-model="branchMenuOpen" class="my-2">
           <template #activator>
             <v-list-item-icon>
               <v-icon small>mdi-source-branch</v-icon>

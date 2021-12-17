@@ -10,11 +10,10 @@
     </v-card-text>
     <div class="">
       <v-card-text class="text-h6 font-weight-regular">
-        Speckle helps leading AEC companies freely exchange data between software silos and automate
-        design and delivery processes:
+       
+        Better CNC Factory project
         <span class="primary--text text--disabled">
-          join 100s of designers, architects, engineers and developers building the digital future
-          of AEC.
+          A collaboartion project between Fiction Factory, The Institute for Advanced Architecture of Catalonia (IAAC) and Jesse Howard
         </span>
       </v-card-text>
     </div>

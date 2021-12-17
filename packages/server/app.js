@@ -23,6 +23,7 @@ require( 'dotenv' ).config( { path: `${appRoot}/.env` } )
 
 const { contextApiTokenHelper } = require( './modules/shared' )
 const knex = require( './db/knex' )
+const cors = require('cors')
 
 let graphqlServer
 
@@ -32,6 +33,8 @@ let graphqlServer
  */
 exports.init = async ( ) => {
   const app = express( )
+
+  app.options('*', cors())
 
   Logging( app )
   MatStartup()

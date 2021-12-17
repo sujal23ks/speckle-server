@@ -19,7 +19,7 @@ services:
       CANONICAL_URL: "http://localhost"
 
       # TODO: Change this to a unique secret for this server
-      SESSION_SECRET: "TODO:Replace"
+      SESSION_SECRET: "TODO:Replace1"
 
       STRATEGY_LOCAL: "true"
       DEBUG: "speckle:*"
@@ -56,7 +56,7 @@ services:
     environment:
       DEBUG: "webhook-service:*"
       PG_CONNECTION_STRING: "postgres://speckle:speckle@postgres/speckle"
-  
+
   fileimport-service:
     build:
       context: .
@@ -72,4 +72,3 @@ services:
       S3_BUCKET: "speckle-server"
 
       SPECKLE_SERVER_URL: "http://speckle-server:3000"
-      
