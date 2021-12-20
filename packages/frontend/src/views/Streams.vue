@@ -17,7 +17,7 @@
 
       <div v-if="user">
         <v-list dense class="py-0">
-          <v-subheader class="caption ml-2">All Your Orders:</v-subheader>
+          <v-subheader class="caption ml-2">Your stats:</v-subheader>
           <v-list-item>
             <v-list-item-icon>
               <v-icon small class="">mdi-folder-multiple</v-icon>

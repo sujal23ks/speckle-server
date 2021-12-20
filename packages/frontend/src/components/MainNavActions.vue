@@ -7,7 +7,7 @@
 		<v-list style="margin-top: 64px" shaped>
 			<v-list-item class="primary" dark link @click="newStreamDialog = true">
 				<v-list-item-content>
-					<v-list-item-title>Create a New Order</v-list-item-title>
+					<v-list-item-title>New Stream</v-list-item-title>
 					<v-list-item-subtitle class="caption">
 						Quickly create a new data repository.
 					</v-list-item-subtitle>

@@ -2,7 +2,7 @@
   <div>
     <portal to="streamTitleBar">
       <div>
-        <span class="space-grotesk" v-if="stream">{{$vuetify.breakpoint.xsOnly ? stream.name : 'Order Home'}}</span>
+        <span class="space-grotesk" v-if="stream">{{$vuetify.breakpoint.xsOnly ? stream.name : 'Stream Home'}}</span>
       </div>
     </portal>
     <v-row v-if="stream && stream.commits.totalCount !== 0" no-gutters>
@@ -85,7 +85,7 @@
     </v-row>
 
     <no-data-placeholder v-if="stream && stream.commits.totalCount === 0">
-      <h2>This stream has not received any order data yet.</h2>
+      <h2>This stream has not received any data.</h2>
       <p class="caption">
         Streams are repositories where you can store, version and retrieve various design data.
       </p>
